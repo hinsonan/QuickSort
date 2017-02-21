@@ -2,16 +2,29 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class QuickSort {
+	
+	private static int size;
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		//Ask the user for the size of the array they want
 		System.out.print("Enter the size of the array you want");
-		int size = scan.nextInt();
+		size = scan.nextInt();
 		
-		int[] unSortedArray = createIntArray(size);
+		int[] array = createIntArray(size);
+		System.out.println("Unsorted Array");
+		for(int n: array ){
+			System.out.print(n + " ");
+		}
 		
-		HoarePartition(unSortedArray);
+		System.out.println("");
+		
+		HoarePartition(array);
+		
+		System.out.println("Partitioned Array");
+		for(int n: array ){
+			System.out.print(n + " ");
+		}
 		
 
 	}
@@ -19,6 +32,39 @@ public class QuickSort {
 	private static void HoarePartition(int[] arr)
 	{
 		int p = arr[0];
+		int i = 0;
+		int j = (size-1) + 1;
+		
+		do
+		{
+			while(arr[i] <= p)
+			{
+				i = i + 1;
+			}
+			
+			
+			do
+			{
+				j = j - 1;
+			}
+			while(arr[j] >= p);
+			//swap arr[i], arr[j]
+			int temp = arr[i];
+			arr[i] = arr[j];
+			arr[j] = temp;
+			
+		}
+		while(!(i >= j));
+		//undo the last swap
+		int temp = arr[i];
+		arr[i] = arr[j];
+		arr[j] = temp;
+		
+		//swap the partition value
+		temp = arr[0];
+		arr[0] = arr[j];
+		arr[j] = temp;
+	
 		
 		
 	}
@@ -35,5 +81,7 @@ public class QuickSort {
 		}
 		return array;
 	}
+	
+	
 
 }
