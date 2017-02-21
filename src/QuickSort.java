@@ -49,8 +49,8 @@ public class QuickSort {
 	private static int HoarePartition(int[] arr, int lo, int hi)
 	{
 		int p = arr[lo];
-		int i = lo - 1;
-		int j = hi + 1;
+		int i = lo;
+		int j = hi - 1;
 		
 		while(i >= j);
 		{
