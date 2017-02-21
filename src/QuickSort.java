@@ -8,8 +8,10 @@ public class QuickSort {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		//Ask the user for the size of the array they want
-		System.out.print("Enter the size of the array you want");
+		System.out.print("Enter the size of the array you want: ");
 		size = scan.nextInt();
+		
+		
 		
 		int[] array = createIntArray(size);
 		System.out.println("Unsorted Array");
@@ -19,7 +21,7 @@ public class QuickSort {
 		
 		System.out.println("");
 		
-		HoarePartition(array);
+		quickSort(array, 0, array.length-1);
 		
 		System.out.println("Partitioned Array");
 		for(int n: array ){
@@ -29,19 +31,34 @@ public class QuickSort {
 
 	}
 	
-	private static void HoarePartition(int[] arr)
+	private static void quickSort(int[] arr, int lo, int hi)
 	{
-		int p = arr[0];
-		int i = 0;
-		int j = (size-1) + 1;
+		
+		
+		if(lo < hi)
+		{
+			int pivot = HoarePartition(arr, 0, arr.length - 1);
+			quickSort(arr, lo, pivot);
+			quickSort(arr, pivot + 1 , hi);
+			
+			
+			
+		}
+	}
+	
+	private static int HoarePartition(int[] arr, int lo, int hi)
+	{
+		int p = arr[lo];
+		int i = lo - 1;
+		int j = hi + 1;
 		
 		do
 		{
-			while(arr[i] <= p)
+			do
 			{
 				i = i + 1;
 			}
-			
+			while(arr[i] <= p);
 			
 			do
 			{
@@ -64,6 +81,8 @@ public class QuickSort {
 		temp = arr[0];
 		arr[0] = arr[j];
 		arr[j] = temp;
+		
+		return j;
 	
 		
 		
