@@ -7,6 +7,7 @@ public class QuickSort {
 		Scanner scan = new Scanner(System.in);
 		//Ask the user for the size of the array they want
 <<<<<<< HEAD
+<<<<<<< HEAD
 		System.out.print("Enter the size of the array you want: ");
 		size = scan.nextInt();
 		
@@ -34,12 +35,21 @@ public class QuickSort {
 =======
 		HoarePartition(unSortedArray);
 >>>>>>> parent of 7408ca2... Implements Hoare partition
+=======
+		System.out.print("Enter the size of the array you want");
+		int size = scan.nextInt();
+		
+		int[] unSortedArray = createIntArray(size);
+		
+		HoarePartition(unSortedArray);
+>>>>>>> parent of 7408ca2... Implements Hoare partition
 		
 
 	}
 	
 	private static void quickSort(int[] arr, int lo, int hi)
 	{
+<<<<<<< HEAD
 <<<<<<< HEAD
 		
 		
@@ -92,6 +102,9 @@ public class QuickSort {
 		
 		return j;
 	
+=======
+		int p = arr[0];
+>>>>>>> parent of 7408ca2... Implements Hoare partition
 =======
 		int p = arr[0];
 >>>>>>> parent of 7408ca2... Implements Hoare partition
