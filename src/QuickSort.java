@@ -52,26 +52,26 @@ public class QuickSort {
 		int i = lo - 1;
 		int j = hi + 1;
 		
-		do
+		while(i >= j);
 		{
-			do
+			while(arr[i] <= p)
 			{
 				i = i + 1;
 			}
-			while(arr[i] <= p);
 			
-			do
+			
+			while(arr[j] >= p);
 			{
 				j = j - 1;
 			}
-			while(arr[j] >= p);
+			
 			//swap arr[i], arr[j]
 			int temp = arr[i];
 			arr[i] = arr[j];
 			arr[j] = temp;
 			
 		}
-		while(!(i >= j));
+	
 		//undo the last swap
 		int temp = arr[i];
 		arr[i] = arr[j];
