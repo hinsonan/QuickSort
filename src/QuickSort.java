@@ -2,12 +2,11 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class QuickSort {
-	
-	private static int size;
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		//Ask the user for the size of the array they want
+<<<<<<< HEAD
 		System.out.print("Enter the size of the array you want: ");
 		size = scan.nextInt();
 		
@@ -18,21 +17,30 @@ public class QuickSort {
 		for(int n: array ){
 			System.out.print(n + " ");
 		}
+=======
+		System.out.print("Enter the size of the array you want");
+		int size = scan.nextInt();
+>>>>>>> parent of 7408ca2... Implements Hoare partition
 		
-		System.out.println("");
+		int[] unSortedArray = createIntArray(size);
 		
+<<<<<<< HEAD
 		quickSort(array, 0, array.length-1);
 		
 		System.out.println("Partitioned Array");
 		for(int n: array ){
 			System.out.print(n + " ");
 		}
+=======
+		HoarePartition(unSortedArray);
+>>>>>>> parent of 7408ca2... Implements Hoare partition
 		
 
 	}
 	
 	private static void quickSort(int[] arr, int lo, int hi)
 	{
+<<<<<<< HEAD
 		
 		
 		if(lo < hi)
@@ -84,6 +92,9 @@ public class QuickSort {
 		
 		return j;
 	
+=======
+		int p = arr[0];
+>>>>>>> parent of 7408ca2... Implements Hoare partition
 		
 		
 	}
@@ -100,7 +111,5 @@ public class QuickSort {
 		}
 		return array;
 	}
-	
-	
 
 }
