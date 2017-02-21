@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 import java.util.Random;
 import java.util.Scanner;
 
@@ -8,10 +7,10 @@ public class QuickSort {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		//Ask the user for the size of the array they want
-		System.out.print("Enter the size of the array you want");
-<<<<<<< HEAD
+		System.out.print("Enter the size of the array you want: ");
+
 		int size = scan.nextInt();
-=======
+
 		size = scan.nextInt();
 		
 		int[] array = createIntArray(size);
@@ -19,31 +18,30 @@ public class QuickSort {
 		for(int n: array ){
 			System.out.print(n + " ");
 		}
->>>>>>> parent of 6a23d49... implements quicksort but have out of bounds error
+
 		
-		int[] unSortedArray = createIntArray(size);
 		
-<<<<<<< HEAD
-		HoarePartition(unSortedArray);
-=======
-		HoarePartition(array);
+		
+
+		HoarePartition(array , 0 , array.length - 1);
+
+		
 		
 		System.out.println("Partitioned Array");
 		for(int n: array ){
 			System.out.print(n + " ");
 		}
->>>>>>> parent of 6a23d49... implements quicksort but have out of bounds error
+
 		
 
 	}
 	
-	private static void HoarePartition(int[] arr)
+	private static int HoarePartition(int[] arr, int lo, int hi)
 	{
 		int p = arr[0];
-<<<<<<< HEAD
-=======
-		int i = 0;
-		int j = (size-1) + 1;
+
+		int i = lo - 1;
+		int j = hi + 1;
 		
 		do
 		{
@@ -74,8 +72,10 @@ public class QuickSort {
 		temp = arr[0];
 		arr[0] = arr[j];
 		arr[j] = temp;
+		
+		return j;
 	
->>>>>>> parent of 6a23d49... implements quicksort but have out of bounds error
+
 		
 		
 	}
@@ -94,4 +94,4 @@ public class QuickSort {
 	}
 
 }
->>>>>>> parent of 7408ca2... Implements Hoare partition
+
