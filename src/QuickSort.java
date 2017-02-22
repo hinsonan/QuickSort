@@ -26,9 +26,6 @@ public class QuickSort {
 		
 
 		HoarePartition(array , 0 , array.length - 1);
-
-		
-
 		
 
 		
@@ -36,11 +33,39 @@ public class QuickSort {
 		for(int n: array ){
 			System.out.print(n + " ");
 		}
+		
+		quickSort(array, 0, array.length - 1);
+		
+		System.out.println("Quicksorted Array");
+		for(int n: array ){
+			System.out.print(n + " ");
+		}
+		
+		
 
 
 		
 
 	}
+	 private static void quickSort(int[] arr, int lo, int hi)
+	 {
+		    /*Quicksort(A[l..r])
+			Sorts a subarray by quicksort
+			Input: Subarray of arrayA[0..n-1],defined by its left and right
+			indiceslandr
+			Output: SubarrayA[l..r] sorted in nondecreasing order
+				if l<r 
+		    		s = Partition(A[l..r])//sis a split position
+		    		Quicksort(A[l..s-1])
+		    		Quicksort(A[s+1..r])*/
+		 
+		 if(lo < hi)
+		 {
+			 int s = HoarePartition(arr, lo, hi);
+			 quickSort(arr, lo, hi);
+			 quickSort(arr, lo, hi);
+		 }
+	 }
 	
 	
 	
