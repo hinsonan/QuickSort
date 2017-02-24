@@ -1,8 +1,8 @@
-
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-public class QuickSort {
+public class MyQuickSort {
 
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
@@ -13,10 +13,14 @@ public class QuickSort {
 		int size = scan.nextInt();
 
 
-		//create array and print it out
-		int[] array = createIntArray(size);
+		
+		
+		//populate array list
+		ArrayList array = createArrayList(size);
+		
+		//print out unsorted list
 		System.out.println("Unsorted Array");
-		for(int n: array ){
+		for(Object n : array){
 			System.out.print(n + " ");
 		}
 
@@ -25,19 +29,19 @@ public class QuickSort {
 
 		
 
-		//HoarePartition(array , 0 , array.length - 1);
+		//HoarePartition(array , 0 , array.size() - 1);
 		
 
 		
-		/*System.out.println("Partitioned Array");
-		for(int n: array ){
+		System.out.println("Partitioned Array");
+		for(Object n: array ){
 			System.out.print(n + " ");
-		}*/
+		}
 		
-		quickSort(array, 0, array.length - 1);
+		quickSort(array, 0, array.size() - 1);
 		
 		System.out.println("Quicksorted Array");
-		for(int n: array ){
+		for(Object n: array ){
 			System.out.print(n + " ");
 		}
 		
@@ -47,7 +51,7 @@ public class QuickSort {
 		
 
 	}
-	 private static void quickSort(int[] arr, int lo, int hi)
+	 private static void quickSort(ArrayList<Integer> arr, int lo, int hi)
 	 {
 		    /*Quicksort(A[l..r])
 			Sorts a subarray by quicksort
@@ -66,20 +70,20 @@ public class QuickSort {
 			 quickSort(arr, s + 1, hi);
 			 
 		 }
-	 }
+	 } 
 	
 	
 	
-	private static int HoarePartition(int[] arr , int lo, int hi)
+	private static int HoarePartition(ArrayList<Integer> arr , int lo, int hi)
 	{
-		int p = arr[lo];
+		int p = arr.get(0);
 		int i = lo;
 		int j = hi +1;
 
 		
 		do
 		{
-			while(arr[i] <= p)
+			while((int)arr.get(i) <= p)
 			{
 				i = i + 1;
 				
@@ -94,23 +98,23 @@ public class QuickSort {
 				
 				
 			}
-			while(arr[j] >= p);
+			while((int)arr.get(j) >= p);
 			//swap arr[i], arr[j]
-			int temp = arr[i];
-			arr[i] = arr[j];
-			arr[j] = temp;
+			int temp = arr.get(i);
+			arr.set(i, arr.get(j));
+			arr.set(j, temp);
 			
 		}
 		while(i <= j);
 		//undo the last swap
-		int temp = arr[i];
-		arr[i] = arr[j];
-		arr[j] = temp;
+		int temp = arr.get(i);
+		arr.set(i, arr.get(j));
+		arr.set(j, temp);
 		
 		//swap the partition value
-		temp = arr[lo];
-		arr[lo] = arr[j];
-		arr[j] = temp;
+		temp = arr.get(lo);
+		arr.set(lo, arr.get(j));
+		arr.set(j, temp);
 		
 		return j;
 	
@@ -119,18 +123,19 @@ public class QuickSort {
 		
 	}
 	
-	private static int[] createIntArray(int size){
-		int[] array = new int[size];
+	private static ArrayList createArrayList(int size){
+		ArrayList<Integer> list = new ArrayList<Integer>();
 		
 		//this loop will fill the array with values
-		for(int i = 0; i < array.length; i++){
+		for(int i = 0; i < size; i++){
 			//put random numbers into the array
 			Random rand = new Random();
 			//makes the random numbers 5 times the size of the array the user wants
-			array[i] = rand.nextInt((size*10)) + 1;
+			list.add(rand.nextInt((size*10)) + 1);
 		}
-		return array;
+		return list;
 	}
 
 }
+
 
