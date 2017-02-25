@@ -79,11 +79,15 @@ public class QuickSortVersion2 {
 
 		
 		do
+		
 		{
+			
 			while(arr[i] <= p) //if i is greater hi switch pivot and j
 			{
 				
 				i = i + 1;
+				
+				
 				
 			}
 			
@@ -103,7 +107,9 @@ public class QuickSortVersion2 {
 			arr[j] = temp;
 			
 		}
+		
 		while(i <= j);
+		
 		//undo the last swap
 		int temp = arr[i];
 		arr[i] = arr[j];
