@@ -62,6 +62,7 @@ public class QuickSortVersion2 {
 		 
 		 if(lo < hi)
 		 {
+			 //int s = hoare_partition(arr, lo, hi);
 			 int s = HoarePartition(arr, lo, hi);
 			 quickSort(arr, lo, s - 1);
 			 quickSort(arr, s + 1, hi);
@@ -82,7 +83,7 @@ public class QuickSortVersion2 {
 		
 		{
 			
-			while(arr[i] <= p) //if i is greater hi switch pivot and j
+			while(arr[i] < p) //if i is greater hi switch pivot and j
 			{
 				
 				i = i + 1;
@@ -139,6 +140,27 @@ public class QuickSortVersion2 {
 		}
 		return array;
 	}
+	
+	public static int hoare_partition(int[] a, int lo, int hi) {
+	      int pivot = a[lo];
+	      int i = lo - 1;
+	      int j = hi + 1;
+	      while (true) {
+	         while (a[++i] < pivot); // repeat: i=i+1 until a[i] >= pivot
+	         while (a[--j] > pivot); // repeat: j=j-1 until a[j] <= pivot
+	 
+	         if (i >= j) {
+	            return j;
+	         }
+	         swap(a, i, j);
+	      }
+	   }
+	
+	 public static void swap(int[] a, int i, int j) {
+	      int temp = a[i];
+	      a[i] = a[j];
+	      a[j] = temp;
+	   }
 
 }
 
