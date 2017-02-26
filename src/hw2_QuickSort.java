@@ -11,35 +11,39 @@ public class hw2_QuickSort {
 
 		int size = scan.nextInt();
 
-
-		//create array and print it out
-		//int[] array = {48, 95, 97, 61, 89, 7, 52, 26, 30, 81};
+		System.out.println("");
+		System.out.println("");
+		
 		int[] array = createIntArray(size);
-		//int[] array = {51, 92, 54, 35, 27, 62, 73, 56, 76, 72};
+		
 		System.out.println("Unsorted Array");
-		for(int n: array ){
-			System.out.print(n + " ");
+		for(int i = 0; i < array.length ; i++ ){
+			if (i % 10 == 0 && i > 0)
+			{
+				System.out.println();
+			}
+			
+			System.out.print(array[i] + " ");
 		}
 
+		System.out.println("");
 		System.out.println("");
 		
 
 		
 
-		//HoarePartition(array , 0 , array.length - 1);
 		
-
-		
-		/*System.out.println("Partitioned Array");
-		for(int n: array ){
-			System.out.print(n + " ");
-		}*/
 		
 		quickSort(array, 0, array.length - 1);
 		
 		System.out.println("Quicksorted Array");
-		for(int n: array ){
-			System.out.print(n + " ");
+		for(int i = 0; i < array.length ; i++ ){
+			if (i % 10 == 0 && i > 0)
+			{
+				System.out.println();
+			}
+			
+			System.out.print(array[i] + " ");
 		}
 		
 		
@@ -64,7 +68,7 @@ public class hw2_QuickSort {
 		 {
 			 int s = HoarePartition(arr, lo, hi);			 
 			 quickSort(arr, lo, s );
-			 quickSort(arr, s + 1, hi);
+			 quickSort(arr, s + 1 , hi);
 			 
 		 }
 	 }
@@ -83,15 +87,13 @@ public class hw2_QuickSort {
 	         if (i >= j) {
 	            return j;
 	         }
-	         swap(arr, i, j);
+	         int temp = arr[i];
+		     arr[i] = arr[j];
+		     arr[j] = temp;
 	      }
 	   }
 	
-	 public static void swap(int[] arr, int i, int j) {
-	      int temp = arr[i];
-	      arr[i] = arr[j];
-	      arr[j] = temp;
-	   }
+	 
 	 
 	 private static int[] createIntArray(int size){
 			int[] array = new int[size];
