@@ -45,13 +45,9 @@ public class hw2_QuickSort {
 			
 			System.out.print(array[i] + " ");
 		}
-		
-		
-
-
-		
 
 	}
+	
 	 private static void quickSort(int[] arr, int lo, int hi)
 	 {
 		    /*Quicksort(A[l..r])
@@ -77,16 +73,34 @@ public class hw2_QuickSort {
 
 	
 	public static int HoarePartition(int[] arr, int lo, int hi) {
-	      int pivot = arr[lo];
+		  //this other way took some research on manipulating loops but performs much better than my previous code
+		  //part of the issues in the code I had was because of the do while loops
+		  //with this approach we simplify the algorithm using incrementing arrays within a while loop which cuts down on the code you have to write
+		
+	      int p = arr[lo];
 	      int i = lo - 1;
 	      int j = hi + 1;
+	      
+	      /*So before I had a do while loop and that was causing some of the issues
+	      I found out I could make a while loop that is always true
+	      so this loop will always run until i >= j
+	      the return statement takes you out of the while loop
+	      */
 	      while (true) {
-	         while (arr[++i] < pivot); // repeat: i=i+1 until a[i] >= pivot
-	         while (arr[--j] > pivot); // repeat: j=j-1 until a[j] <= pivot
+	    	  
+	    	 /* Now these while loops use postfix notation
+	    	  * you have to use postfix or else you will get a array out of bounds exception
+	    	  * every time these loops are false the variable will increase
+	    	  * the loops will stop when a[i] >= pivot or a[j] <= pivot depending on which loop it is
+	    	  */ 
+	         while (arr[++i] < p); 
+	         while (arr[--j] > p); 
 	 
 	         if (i >= j) {
+	        	 //this breaks out of the while(true) loop
 	            return j;
 	         }
+	         //swaps the values
 	         int temp = arr[i];
 		     arr[i] = arr[j];
 		     arr[j] = temp;
